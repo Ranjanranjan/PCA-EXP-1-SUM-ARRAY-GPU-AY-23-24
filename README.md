@@ -78,7 +78,7 @@ void sumArraysOnHost(float *A, float *B, float *C, const int N)
 }
 
 
-_global_ void sumArraysOnGPU(float *A, float *B, float *C, const int N){
+__global__ void sumArraysOnGPU(float *A, float *B, float *C, const int N){
     int i = blockIdx.x*blockDim.x+threadIdx.x;
     if (i<N) C[i] = A[i] + B[i];
 }
@@ -173,7 +173,16 @@ int main(int argc, char **argv)
 }
 ```
 ## OUTPUT:
-![Screenshot 2024-03-06 100537](https://github.com/Ranjanranjan/PCA-EXP-1-SUM-ARRAY-GPU-AY-23-24/assets/130027697/0db31760-b955-4c18-83c1-578e5e5ea661)
+
+![Screenshot 2024-03-12 103328](https://github.com/Ranjanranjan/PCA-EXP-1-SUM-ARRAY-GPU-AY-23-24/assets/130027697/bc90a2a2-1dd3-47d0-80be-d13040a4ac8a)
+
+##blocksize=1203
+![Screenshot 2024-03-12 103349](https://github.com/Ranjanranjan/PCA-EXP-1-SUM-ARRAY-GPU-AY-23-24/assets/130027697/3c37a584-ecf2-4b9a-88a7-815469f62f2e)
+
+##blocksize=256
+![Screenshot 2024-03-12 103459](https://github.com/Ranjanranjan/PCA-EXP-1-SUM-ARRAY-GPU-AY-23-24/assets/130027697/40af9e33-d860-4381-80dd-e6059884cb71)
+
+
 
 
 ## RESULT:
